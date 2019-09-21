@@ -5385,7 +5385,7 @@ react-native-vector-icons@^6.6.0:
     prop-types "^15.6.2"
     yargs "^13.2.2"
 
-react-native@0.60.5:
+react-native@^0.60.5:
   version "0.60.5"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.60.5.tgz#3c1d9c06a0fbab9807220b6acac09488d39186ee"
   integrity sha512-cZwI0XzzihACN+7an1Dy46A83FRaAe2Xyd7laCalFFAppZIYeMVphZQWrVljJk5kIZBNtYG35TY1VsghQ0Oc2Q==
@@ -5436,7 +5436,7 @@ react-navigation-tabs@^2.5.2:
     react-native-safe-area-view "^0.14.6"
     react-native-tab-view "^2.9.0"
 
-react-navigation@4.x:
+react-navigation@^4.0.5:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-4.0.5.tgz#d4e16d9884cfd6bb2cda4d16e001227e2c859b46"
   integrity sha512-VidRiSA2RvrgPlKs/7FNKV6pXEYXREtxiEl6m/Dmfb8x27amG6JRibzJC2mpWt4w0SAIGMUjHallRi3h9sIk0A==

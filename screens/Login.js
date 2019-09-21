@@ -1,8 +1,20 @@
 import React from 'React';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, Alert } from 'react-native';
 import { Input } from 'react-native-elements';
 
 export default class LoginScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email:'',
+            password: '',
+        }
+    }
+
+    handleSignUp = () => {
+        Alert.alert(this.state.email, this.state.password);
+    }
+
     render() {
         return (
             <View style = {styles.View}>
@@ -10,16 +22,23 @@ export default class LoginScreen extends React.Component {
                     label = 'Email'
                     leftIcon={{ type: 'ionicon', name: 'md-mail', color: 'grey' }}
                     placeholder = 'Enter Email'
+                    onChangeText = {
+                        (email) => this.setState({email})
+                    }
+                    
                 />
                 <Input
                     label = 'Password'
                     leftIcon={{ type: 'ionicon', name: 'md-lock', color: 'grey' }}
                     placeholder = 'Enter Password'
                     secureTextEntry = {true}
+                    onChangeText = {
+                        (password) => this.setState({password})
+                    }
                 />
                 <Button 
                     title="Login"
-                    onPress={()=>this.props.navigation.navigate('Main')}
+                    onPress={this.handleSignUp}
                 />
                 <Button 
                     style = {styles.Button}
