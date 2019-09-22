@@ -19,10 +19,16 @@ import LoginScreen from './screens/Login'
 import SignUpScreen from './screens/SignUp'
 import HomeScreen from './screens/Home'
 import CamScreen from './screens/Cam'
+import ConfirmScreen from './screens/Confirm'
 
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+
+import Amplify from 'aws-amplify';
+import aws_exports from './aws-exports';
+
+Amplify.configure(aws_exports);
 
 const TabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
@@ -34,6 +40,7 @@ const TabNavigator = createBottomTabNavigator({
 const StackNavigator = createStackNavigator({
   Login: LoginScreen,
   SignUp: SignUpScreen,
+  Confirm: ConfirmScreen,
 },
 {
   headerMode: 'none',

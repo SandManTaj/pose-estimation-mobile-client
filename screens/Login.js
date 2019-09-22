@@ -45,6 +45,11 @@ export default class LoginScreen extends React.Component {
                     title="Need Account?"
                     onPress={()=>this.props.navigation.navigate('SignUp')}
                 />
+                <Button 
+                    style = {styles.Button}
+                    title="Need To Confirm A Code?"
+                    onPress={()=>this.props.navigation.navigate('Confirm')}
+                />
             </View>
         )
     }

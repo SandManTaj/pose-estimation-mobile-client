@@ -2,28 +2,18 @@ import React from 'react';
 import { View, Button, StyleSheet, Alert } from 'react-native';
 import { Input } from 'react-native-elements';
 import { Auth } from 'aws-amplify';
-import Dialog from 'react-native-dialog'
 
-export default class SignUpScreen extends React.Component {
+export default class ConfirmScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
-            password: '',
-            confirm: '',
+            code: '',
         }
-    }
-    handleSignUp = () => {
-        const {email, password, confirm} = this.state;
-        if (password == confirm) {
-            Auth.signUp({username: email, password: password, attributes: { email }, })
-        }
-        this.props.navigation.navigate('Login');
     }
     handleConfirmation = () => {
-        const {email, password, confirm} = this.state;
-        Auth.confirmSignUp({email, confirm})
-        this.setState({visible: false})
+        const {email, code} = this.state;
+        Auth.confirmSignUp(email, code, {})
         this.props.navigation.navigate('Login');
     }
     render(){
@@ -38,25 +28,17 @@ export default class SignUpScreen extends React.Component {
                     }
                 />
                 <Input
-                    label = 'Password'
+                    label = 'Confirmation Code'
                     leftIcon = {{type: 'ionicon', name: 'md-lock', color: 'grey'}}
-                    placeholder = 'Enter Password'
+                    placeholder = 'Enter Code'
                     onChangeText = {
-                        (password) => this.setState({password})
-                    }
-                />
-                <Input
-                    label = 'Confirm Password'
-                    leftIcon = {{type: 'ionicon', name: 'md-lock', color: 'grey'}}
-                    placeholder = 'Re-Enter Password'
-                    onChangeText = {
-                        (confirm) => this.setState({confirm})
+                        (code) => this.setState({code})
                     }
                 />
                 <Button
                     title="Sign up"
                     onPress={
-                        this.handleSignUp
+                        this.handleConfirmation
                     }
                 />
             </View>
