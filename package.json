@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@react-native-community/cameraroll": "^1.2.1",
+    "amazon-cognito-identity-js": "^3.0.15",
     "aws-amplify": "^1.1.40",
     "react": "16.8.6",
     "react-native": "^0.60.5",

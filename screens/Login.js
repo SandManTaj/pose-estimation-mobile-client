@@ -1,6 +1,7 @@
 import React from 'React';
 import { View, Text, Button, StyleSheet, Alert } from 'react-native';
 import { Input } from 'react-native-elements';
+import { Auth } from 'aws-amplify'
 
 export default class LoginScreen extends React.Component {
     constructor(props) {
@@ -11,8 +12,13 @@ export default class LoginScreen extends React.Component {
         }
     }
 
-    handleSignUp = () => {
-        Alert.alert(this.state.email, this.state.password);
+    handleSignIn = async() => {
+        const { email, password } = this.state;
+        Auth.signIn(email, password)
+            // If we are successful, navigate to Home screen
+            .then(user => this.props.navigation.navigate('Home'))
+            // On failure, display error in console
+            .catch(err => console.log(err));
     }
 
     render() {
@@ -38,7 +44,7 @@ export default class LoginScreen extends React.Component {
                 />
                 <Button 
                     title="Login"
-                    onPress={this.handleSignUp}
+                    onPress={this.handleSignIn}
                 />
                 <Button 
                     style = {styles.Button}
